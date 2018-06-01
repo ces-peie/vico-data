@@ -29,22 +29,25 @@ raw_p1cv     <- load_raw_data("P1CV.csv")
 
 
 #---- Merge data sources ----
-screening <- bind_rows(raw_sujeto_hospital, raw_sujeto_centro, raw_sujeto_puesto) %>%
-  left_join(raw_h1, by="SubjectID") %>%
-  left_join(raw_h2c, by="SubjectID") %>%
-  left_join(raw_h2ce, by="SubjectID") %>%
-  left_join(raw_h2cv, by="SubjectID") %>%
-  left_join(raw_h2drf, by="SubjectID") %>%
-  left_join(raw_h2f, by="SubjectID") %>%
-  left_join(raw_h2n, by="SubjectID") %>%
-  left_join(raw_h2rem, by="SubjectID") %>%
-  left_join(raw_c1c, by="SubjectID") %>%
-  left_join(raw_c1ce, by="SubjectID") %>%
-  left_join(raw_c1cv, by="SubjectID") %>%
-  left_join(raw_c1f, by="SubjectID") %>%
-  left_join(raw_p1c, by="SubjectID") %>%
-  left_join(raw_p1ce, by="SubjectID") %>%
-  left_join(raw_p1cv, by="SubjectID")
+screening <- list(raw_sujeto_hospital, raw_sujeto_centro, raw_sujeto_puesto) %>%
+  # convertir a fecha en cada set
+  purrr::map(mutate, fechaTerminacionProyecto = as.POSIXct(fechaTerminacionProyecto)) %>%
+  bind_rows()
+  # left_join(raw_h1, by="SubjectID") %>%
+  # left_join(raw_h2c, by="SubjectID") %>%
+  # left_join(raw_h2ce, by="SubjectID") %>%
+  # left_join(raw_h2cv, by="SubjectID") %>%
+  # left_join(raw_h2drf, by="SubjectID") %>%
+  # left_join(raw_h2f, by="SubjectID") %>%
+  # left_join(raw_h2n, by="SubjectID") %>%
+  # left_join(raw_h2rem, by="SubjectID") %>%
+  # left_join(raw_c1c, by="SubjectID") %>%
+  # left_join(raw_c1ce, by="SubjectID") %>%
+  # left_join(raw_c1cv, by="SubjectID") %>%
+  # left_join(raw_c1f, by="SubjectID") %>%
+  # left_join(raw_p1c, by="SubjectID") %>%
+  # left_join(raw_p1ce, by="SubjectID") %>%
+  # left_join(raw_p1cv, by="SubjectID")
 
 
 #---- Unload pracessed data block ----
