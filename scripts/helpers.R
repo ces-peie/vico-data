@@ -11,5 +11,6 @@ load_raw_data <- function(name) {
 
 
 unload_data_block <- function(data_block) {
+  dir.create(processed_data_base_path, showWarnings = FALSE)
   write_csv(data_block, str_c(processed_data_base_path, deparse(substitute(data_block)), ".csv"))
 }
