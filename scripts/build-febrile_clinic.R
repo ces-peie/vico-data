@@ -4,10 +4,10 @@ source("scripts/helpers.R")
 
 #---- Load relevant raw files ----
 raw_sujeto_centro <- load_raw_data("Sujeto_Centro.csv")
-raw_c1c   <- load_raw_data("C1C.csv")
-raw_c1ce  <- load_raw_data("C1CE.csv")
-raw_c1cv  <- load_raw_data("C1CV.csv")
-raw_c1f   <- load_raw_data("C1F.csv")
+# raw_c1c   <- load_raw_data("C1C.csv")
+# raw_c1ce  <- load_raw_data("C1CE.csv")
+# raw_c1cv  <- load_raw_data("C1CV.csv")
+# raw_c1f   <- load_raw_data("C1F.csv")
 raw_c2a   <- load_raw_data("C2A.csv")
 raw_c2b   <- load_raw_data("C2B.csv")
 raw_c2c   <- load_raw_data("C2C.csv")
@@ -24,10 +24,10 @@ raw_lab_febril_resultados <- load_raw_data("FebrilResultados.csv")
 
 #---- Merge data sources ----
 febrile_clinic <- raw_sujeto_centro %>%
-  left_join(raw_c1c, by="SubjectID") %>%
-  left_join(raw_c1ce, by="SubjectID") %>%
-  left_join(raw_c1cv, by="SubjectID") %>%
-  left_join(raw_c1f, by="SubjectID") %>%
+  # left_join(raw_c1c, by="SubjectID") %>%
+  # left_join(raw_c1ce, by="SubjectID") %>%
+  # left_join(raw_c1cv, by="SubjectID") %>%
+  # left_join(raw_c1f, by="SubjectID") %>%
   left_join(raw_c2a, by="SubjectID") %>%
   left_join(raw_c2b, by="SubjectID") %>%
   left_join(raw_c2c, by="SubjectID") %>%
