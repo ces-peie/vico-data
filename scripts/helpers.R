@@ -25,7 +25,15 @@ load_raw_data <- function(name) {
       -PDALastModifPDAName,
       -PDALastModifSN,
       -PDALastModifUser,
-      -PDALastModifVersion
+      -PDALastModifVersion,
+      -PDALastUploadDate,
+      -PDALastUploadPDAName,
+      -PDALastUploadSN,
+      -PDALastUploadUser,
+      -PDALastUploadVersion,
+      -SubjectCompletedRecord,
+      -SubjectQuestionnaireInstanceID,
+      -UpdateVersion
     )
 }
 
