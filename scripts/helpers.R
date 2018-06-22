@@ -8,7 +8,33 @@ processed_data_base_path <- "./output/"
 load_raw_data <- function(name) {
   read_csv(str_c(raw_data_base_path, name)) %>%
     filter(forDeletion == FALSE) %>%
-    select(-forDeletion)
+    select(
+      -forDeletion,
+      -InsertDate,
+      -InsertUser,
+      -InsertMsg,
+      -DBModifDate,
+      -DBModifUser,
+      -DBModifMsg,
+      -PDAInsertDate,
+      -PDAInsertPDAName,
+      -PDAInsertSN,
+      -PDAInsertUser,
+      -PDAInsertVersion,
+      -PDALastModifDate,
+      -PDALastModifPDAName,
+      -PDALastModifSN,
+      -PDALastModifUser,
+      -PDALastModifVersion,
+      -PDALastUploadDate,
+      -PDALastUploadPDAName,
+      -PDALastUploadSN,
+      -PDALastUploadUser,
+      -PDALastUploadVersion,
+      -SubjectCompletedRecord,
+      -SubjectQuestionnaireInstanceID,
+      -UpdateVersion
+    )
 }
 
 
